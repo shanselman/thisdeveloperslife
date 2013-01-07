@@ -1,0 +1,25 @@
+﻿@{  
+    Layout = "~/_SiteLayout.cshtml";
+    Page.Title = "Stories About Developers and Their Lives";
+    var Shows = ShowDatabase.Recent();
+}
+
+<div class= "container-wide" style="margin-bottom:36px">
+    @foreach(var episode in Shows){
+    <div style="margin-right:22px;float:left;margin-bottom:22px;margin-top:36px" class="episode"> 
+        <a href='@Sugar.RelativeUrl(episode)' class="showlink"> 
+            <img src="@Href("~/Images/", episode.LeadImage)"
+                alt="@episode.Title" width="320" height="220"/>
+            <div class='title'> 
+                <p>@episode.Title</p> 
+                <div class='description'> 
+                    <p>@episode.Summary</p> 
+                </div> 
+            </div> 
+        </a> 
+    </div> 
+    <audio id="audio-@episode.Slug" preload="none" src="http://traffic.libsyn.com/devlife/@Html.AttributeEncode(episode.MediaFile)"></audio>
+    }
+</div>
+
+

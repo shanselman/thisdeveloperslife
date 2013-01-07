@@ -1,0 +1,30 @@
+@{
+   var Shows = ShowDatabase.Recent();
+   Response.ContentType = "application/atom+xml";
+}
+<?xml version="1.0" encoding="UTF-8"?> 
+<feed xmlns="http://www.w3.org/2005/Atom"> 
+  <title type="text">This Developer's Life</title> 
+  <generator uri="http://asp.net/webmatrix">Web Matrix</generator> 
+  <id>tag:thisdeveloperslife.com,2011:/</id> 
+  <link rel="self" href="http://thisdeveloperslife.com/rss"/> 
+  <link rel="alternate" href="http://thisdeveloperslife.com"/> 
+  <subtitle type="text">Stories About Developers and Their Lives</subtitle> 
+  <updated>@Sugar.ToRFC3339(Shows.Last().PublishedAt)</updated> 
+    @foreach(var show in Shows){
+    <entry> 
+    <title>@show.Title</title> 
+    <author> 
+      <name>Rob Conery, Scott Hanselman</name> 
+      <uri>http://thisdeveloperslife.com</uri> 
+    </author> 
+    <link type="text/html" rel="alternate" href="http://thisdeveloperslife.com/@Sugar.RelativeUrl(show)"/> 
+    <id>tag:thisdeveloperslife.com,@show.PublishedAt.ToString("yyyy-MM-dd"):/@Sugar.RelativeUrl(show)</id> 
+    <content type="html">
+        @ShowDatabase.FeedContent(show)
+	</content> 
+    <published>@Sugar.ToRFC3339(show.PublishedAt)</published> 
+    <updated>@Sugar.ToRFC3339(show.PublishedAt)</updated> 
+  </entry>
+  }
+</feed>

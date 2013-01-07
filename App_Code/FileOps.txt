@@ -1,0 +1,102 @@
+using System;
+using System.Collections.Generic;
+using System.Web;
+using System.IO;
+using System.Text;
+
+/// <summary>
+/// Summary description for ClassName
+/// </summary>
+public class Filez
+{
+    public static List<Article> Pages{
+        get{
+            return _pages;
+		}
+    }
+    static List<Article> _pages;
+    public static List<Article> LoadPages(){
+        return LoadPages(false);    
+	}
+    public static List<Article> LoadPages(bool forceReload){
+        
+        if(forceReload)
+            _pages = null;
+        
+        if(_pages == null){
+            var fileDir = HttpContext.Current.Server.MapPath("~/App_Data");
+            _pages = LoadFiles(fileDir);
+            
+            var dirs = Directory.GetDirectories(fileDir);
+            foreach (var dir in dirs) {
+                _pages.AddRange(LoadFiles(dir));
+            }
+        }
+
+        _pages.Sort(delegate(Article a1, Article a2) { return a2.Date.CompareTo(a1.Date); });
+        return _pages;
+	}
+
+    static string ParseValue(Dictionary<string,string> dict, string key) {
+
+        foreach (var item in dict.Keys) {
+            if (item.Equals(key, StringComparison.CurrentCultureIgnoreCase)) {
+                return dict[item];
+            }
+        }
+        return "";
+    }
+
+    public static Article ReadPageMeta(string pageFile) {
+        var pageContent = ReadFileContents(pageFile);
+        var pageLines = pageContent.Split('\n');
+        var page = new Article();
+        var parentDir = Directory.GetParent(pageFile).Name;
+
+
+        var vals = new Dictionary<string, string>();
+        var sb = new StringBuilder();
+        bool markupStarted = false;
+        foreach (var line in pageLines)
+	    {
+
+            var splits = line.Split(new char[] { ':' }, StringSplitOptions.RemoveEmptyEntries);
+            if (splits.Length > 0)
+                vals.Add(splits[0].Trim(), splits[1].Trim());
+
+	    }
+
+        page.Slug = Path.GetFileNameWithoutExtension(pageFile);
+        page.AbsolutePath = pageFile;
+        page.Date = DateTime.Parse(ParseValue(vals, "date"));
+        page.LeadImage = ParseValue(vals, "lead_image");
+        page.MP3_URL = ParseValue(vals, "mp3_url");
+        page.Sponsors = ParseValue(vals, "sponsors");
+        page.Summary = ParseValue(vals, "summary");
+        page.Title = ParseValue(vals, "title");
+        page.RelativeUrl = ParseValue(vals, "relative_url");
+
+        if (string.IsNullOrWhiteSpace(page.RelativeUrl)) {
+            page.RelativeUrl = "post/"+page.Slug;
+        }
+
+        return page;
+
+    }
+
+    public static List<Article> LoadFiles(string dir) {
+        var filePaths = Directory.GetFiles(dir);
+        List<Article> result = new List<Article>();
+        foreach (var item in filePaths)
+	    {
+            result.Add(ReadPageMeta(item));
+	    }
+        return result;
+    }
+
+    public static string ReadFileContents(string path) {
+        using (StreamReader sr = new StreamReader(path))
+            return sr.ReadToEnd();
+    }
+
+}

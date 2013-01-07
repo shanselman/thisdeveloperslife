@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<feeds>
+  <feed url="http://go.microsoft.com/fwlink/?LinkID=205388" displayname="Default Feed" />
+</feeds>

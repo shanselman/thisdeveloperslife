@@ -1,0 +1,55 @@
+@helper MusicLink(string artist, string title, string link){
+    
+      <li> 
+        <a href='@link'>@artist</a> 
+        - @title
+      </li>
+}
+
+@helper Ghosts(){
+    
+      <li> 
+        <a href='http://ghosts.nin.com/main/home'>Nine Inch Nails</a> 
+        - Ghosts
+      </li> 
+}
+@helper GeneralFuzz(string title){
+      <li> 
+        <a href='http://itunes.apple.com/us/album/smiling-perspective/id277102467?i=277102515'>General Fuzz</a> 
+        - @title
+      </li> 
+            
+}
+@helper DJCary(string title){
+      <li> 
+        <a href='http://itunes.apple.com/us/album/dreaming-of-this-etherine/id257912517?i=257914704'>DJ Cary</a> 
+        - @title
+      </li> 
+            
+}
+
+@helper GuestLink(string guest,string blurb, string link){
+     <li> 
+        <a href='@link' target='_blank'>@guest</a> 
+      @blurb
+    </li> 
+}
+
+@helper GuestLink(string guest,string blurb){
+     <li> 
+        <strong>@guest</strong> 
+      @blurb
+    </li> 
+}
+
+@helper RelativeUrl(dynamic article){
+    if(!string.IsNullOrEmpty(article.RelativeUrl)){
+        @article.RelativeUrl;
+	}else{
+        @String.Format("post/{0}",article.slug);
+	}
+}
+
+@helper ToRFC3339(System.DateTime aDate){
+ @aDate.ToString("yyyy-MM-dd'T'HH:mm:ss'Z'");   
+}

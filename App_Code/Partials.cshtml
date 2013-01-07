@@ -1,0 +1,65 @@
+@helper Subscription(){
+    <h2>Subscription</h2> 
+    <p> 
+      Please consider subscribing with
+      <strong><a href='http://itunes.apple.com/us/podcast/this-developers-life/id389727545'>iTunes</a></strong>, or
+      <strong><a href="http://social.zune.net/podcast/This-Developer's-Life/24deae20-36c8-499c-8023-a6d7153c7178">Zune</a></strong>.
+      Or if you have a BitTorrent client and would like to help save us bandwidth money, as well as the bragging rights of
+      <a href='http://www.clearbits.net/creators/178-this-developers-life'> 
+        downloading legal torrents via RSS,
+        <strong>get our Torrent Feed</strong>at
+        ClearBits</a>.
+    </p>
+    <p>We wrote this little site with WebMatrix. <a href="http://www.microsoft.com/web/webmatrix">Check it out, it's fun.</a></p>
+}
+
+@helper Heading(dynamic article){
+    
+    <div class='post-header'> 
+    <div class='post-color'> 
+      <div class='title-texture'> 
+        <h2 class='bebas' style='visibility: visible; '> 
+          <a href='/@Sugar.RelativeUrl(article)'>@article.Title</a> 
+        </h2> 
+      </div> 
+      <div class='cap-post'> 
+        <a href='/@Sugar.RelativeUrl(article)'>@article.Title</a> 
+      </div> 
+      <div class='clear'></div> 
+    </div> 
+    <div class='tweet-button'> 
+      <a class='twitter-share-button' data-count='horizontal' data-related='robconery:shanselman' data-text='@article.Title' data-url='http://thisdeveloperslife.com/@Sugar.RelativeUrl(article)' data-via='shanselman' href='http://twitter.com/share'>Tweet</a> 
+    </div> 
+    <script src='http://platform.twitter.com/widgets.js' type='text/javascript'></script> 
+    <div class='post-spacer'></div> 
+  </div> 
+  <div class='clear'></div> 
+}
+
+@helper Disqus(){
+     <p> 
+      <div id="disqus_thread"></div> 
+    </p> 
+    <script type='text/javascript'> 
+      //<![CDATA[
+        var disqus_shortname = 'thisdeveloperslife';
+        
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      //]]>
+    </script> 
+}
+
+@helper Facebook(dynamic article){
+    <script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:like href="http://thisdeveloperslife.com/@Sugar.RelativeUrl(article)" show_faces="true" width="450" action="recommend"></fb:like>
+}
+
+@helper FeedContent(dynamic page){
+        <p><img src='http://thisdeveloperslife.com/images/@page.LeadImage' /></p>
+        <p>@page.Summary</p>
+        <p><a href='http://traffic.libsyn.com/devlife/@page.MediaFile'>Download Here</a></p>
+}
+

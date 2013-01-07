@@ -1,0 +1,45 @@
+@{  
+    Layout = "~/_SiteLayout.cshtml";
+    Page.Title = Page.Show.Title;
+}
+<audio id="audio-@Page.Show.Slug" preload="none" src="http://traffic.libsyn.com/devlife/@Html.AttributeEncode(Page.Show.MediaFile)"></audio>
+<div class='container'> 
+    <div class='column span-24 tmargin-36' id='show'> 
+        <div class='column span-11 prepend-1 append-2'>
+            <div class="column span-11 bpad-24">
+               <img src="@Href("~/Images/", Page.Show.LeadImage)"
+                    alt="@Page.Show.Title" width="440"/>
+            </div>
+    <h1>@Page.Show.Title</h1>
+            <div class="column span-11 bpad-12">
+                <div class='tweet-button'> 
+                <a class='twitter-share-button' data-count='horizontal' 
+                data-related='robconery:shanselman' data-text='@Page.Show.Title' 
+                data-url='http://thisdeveloperslife.com/@Sugar.RelativeUrl(Page.Show)' 
+                data-via='shanselman' href='http://twitter.com/share'>Tweet</a> 
+                <script src='http://platform.twitter.com/widgets.js' type='text/javascript'></script> 
+                </div>
+            </div>
+            <div class="column span-24 bmargin-24">
+                @Partials.Facebook(Page.Show)
+            </div>
+            <h2>
+                <a href="http://traffic.libsyn.com/devlife/@Html.AttributeEncode(Page.Show.MediaFile)">
+                    Download Here
+                </a>
+                
+            </h2>
+            @RenderSection("blurb")
+        
+        </div>
+        <div class='column span-6'> 
+            <div class='column player'>
+                
+            @RenderSection("player")
+                
+            </div> 
+      </div> 
+    </div>
+</div>
+
+
