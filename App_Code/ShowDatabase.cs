@@ -17,7 +17,7 @@ public class ShowDatabase
         var pages = WebCache.Get(cacheKey);
         if (pages == null)
         {
-            var db = Database.Open("TDL2");
+            var db = Database.Open("TDL");
             var selectQueryString = "SELECT TOP "+count+" * FROM Articles ORDER BY PublishedAt DESC";
             pages = db.Query(selectQueryString);
             WebCache.Set(cacheKey, pages, 1000, true);
