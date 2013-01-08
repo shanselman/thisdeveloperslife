@@ -217,6 +217,7 @@
     <Content Include="post\_PageStart.cshtml" />
     <Content Include="rss.cshtml" />
     <Content Include="torrent.cshtml" />
+    <Content Include="Settings.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
