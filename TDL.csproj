@@ -89,7 +89,6 @@
   <ItemGroup>
     <Content Include="apple-touch-icon.png" />
     <Content Include="App_Code\FileOps.txt" />
-    <Content Include="db\migrate\2011-12-04-1351.js" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="images\01-lead.jpeg" />
@@ -166,12 +165,6 @@
     <Content Include="images\twilio.png" />
     <Content Include="images\typeface.png" />
     <Content Include="images\umbraco.png" />
-    <Content Include="javascripts\html5.js" />
-    <Content Include="javascripts\IE9PodcastPlayerPlugin.js" />
-    <Content Include="javascripts\IE9PodcastPlayerPlugin.txt" />
-    <Content Include="javascripts\jquery-1.4.2.min.js" />
-    <Content Include="javascripts\jquery.anythingslider.js" />
-    <Content Include="javascripts\jquery.masonry.min.js" />
     <Content Include="robots.txt" />
     <Content Include="scripts\html5.js" />
     <Content Include="scripts\IE9PodcastPlayerPlugin.js" />
@@ -184,7 +177,9 @@
     <Content Include="stylesheets\layout.css" />
     <Content Include="stylesheets\reset.css" />
     <Content Include="stylesheets\site.css" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Code\ShowDatabase.cs" />
@@ -193,7 +188,6 @@
     <Content Include="App_Code\Partials.cshtml" />
     <Content Include="App_Code\Sponsors.cshtml" />
     <Content Include="App_Code\Sugar.cshtml" />
-    <Content Include="db\migrate\index.cshtml" />
     <Content Include="Default.cshtml" />
     <Content Include="packages.config" />
     <Content Include="post\1-0-1-getting-fired.cshtml" />
@@ -234,7 +228,6 @@
     <Content Include="_SiteLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="db\schema\" />
     <Folder Include="Properties\" />
   </ItemGroup>
   <PropertyGroup>
