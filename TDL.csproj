@@ -196,7 +196,6 @@
     <Content Include="post\1-1-5-revolt.cshtml" />
     <Content Include="post\2-0-1-criticism.cshtml" />
     <Content Include="post\2-0-2-pressure.cshtml" />
-    <Content Include="post\2-0-3-education - Copy.cshtml" />
     <Content Include="post\2-0-4-taste.cshtml" />
     <Content Include="post\2-0-5-typo.cshtml" />
     <Content Include="post\2-0-6-play.cshtml" />
@@ -206,6 +205,7 @@
     <Content Include="post\_PageStart.cshtml" />
     <Content Include="rss.cshtml" />
     <Content Include="torrent.cshtml" />
+    <Content Include="post\2-0-3-education.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
