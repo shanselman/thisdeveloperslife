@@ -150,6 +150,7 @@
     <Content Include="images\tdl_logo1.png" />
     <Content Include="images\tekpub_logo_sm.png" />
     <Content Include="images\texture.png" />
+    <Content Include="images\thebigc.jpg" />
     <Content Include="images\tweet_button.html" />
     <Content Include="images\twilio.png" />
     <Content Include="images\typeface.png" />
@@ -206,6 +207,7 @@
     <Content Include="rss.cshtml" />
     <Content Include="torrent.cshtml" />
     <Content Include="post\2-0-3-education.cshtml" />
+    <Content Include="post\3-0-1-cancer.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
