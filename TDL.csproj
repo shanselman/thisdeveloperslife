@@ -137,6 +137,7 @@
     <Content Include="images\header-bot.png" />
     <Content Include="images\header-texture.png" />
     <Content Include="images\ipod.png" />
+    <Content Include="images\logo_full1400.jpg" />
     <Content Include="images\motives.jpeg" />
     <Content Include="images\music_note.png" />
     <Content Include="images\next.ico" />
@@ -164,7 +165,6 @@
     <Content Include="scripts\jquery.masonry.min.js" />
     <Content Include="stylesheets\grid.css" />
     <Content Include="stylesheets\ie.css" />
-    <Content Include="stylesheets\layout.css" />
     <Content Include="stylesheets\reset.css" />
     <Content Include="stylesheets\site.css" />
     <Content Include="Web.config">
