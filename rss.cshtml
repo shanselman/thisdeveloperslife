@@ -2,13 +2,14 @@
    var Shows = ShowDatabase.Recent();
    Response.ContentType = "application/atom+xml";
 }<?xml version="1.0" encoding="UTF-8"?> 
-<feed xmlns="http://www.w3.org/2005/Atom"> 
+<feed xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns="http://www.w3.org/2005/Atom"> 
   <title type="text">This Developer's Life</title> 
   <generator uri="http://asp.net/webmatrix">Web Matrix</generator> 
   <id>tag:thisdeveloperslife.com,2011:/</id> 
   <link rel="self" href="http://thisdeveloperslife.com/rss"/> 
   <link rel="alternate" href="http://thisdeveloperslife.com"/> 
   <subtitle type="text">Stories About Developers and Their Lives</subtitle> 
+  <itunes:image>http://www.thisdeveloperslife.com/images/logo_full1400.jpg</itunes:image> 
   <updated>@Sugar.ToRFC3339(Shows.Last().PublishedAt)</updated> 
     @foreach(var show in Shows){
     <entry> 
