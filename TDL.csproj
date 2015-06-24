@@ -110,6 +110,7 @@
     <Content Include="images\204-lead.png" />
     <Content Include="images\206-play.jpg" />
     <Content Include="images\207-dinosaurs.jpg" />
+    <Content Include="images\401-faith.jpg" />
     <Content Include="images\attribution.png" />
     <Content Include="images\bg.jpg" />
     <Content Include="images\blue-circuit-board.jpeg" />
@@ -207,6 +208,7 @@
     <Content Include="rss.cshtml" />
     <Content Include="post\2-0-3-education.cshtml" />
     <Content Include="post\3-0-1-cancer.cshtml" />
+    <Content Include="post\4-0-1-faith.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
