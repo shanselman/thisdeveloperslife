@@ -39,7 +39,7 @@ public class ShowDatabase
         var sb = new StringBuilder();
         sb.AppendFormat("<p><img src='http://thisdeveloperslife.com/images/{0}' /></p>",article.LeadImage);
         sb.AppendFormat("<p>{0}</p>",article.Summary);
-        sb.AppendFormat("<p><a href='http://podtrac.com/pts/redirect.mp3/hanselminutescdn.blob.core.windows.net/tdl/{0}'>Download Here</a></p>", article.MediaFile);
+        sb.AppendFormat("<p><a href='http://podtrac.com/pts/redirect.mp3/traffic.libsyn.com/devlife/{0}'>Download Here</a></p>", article.MediaFile);
         return sb.ToString();
 
     }
